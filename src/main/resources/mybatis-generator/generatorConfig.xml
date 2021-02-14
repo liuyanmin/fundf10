@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="mysqlgenerator" targetRuntime="MyBatis3">
+        <!-- 批量插入插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.BatchInsertPlugin" />
+        <!-- 数据Model属性对应Column获取插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.ModelColumnPlugin"/>
+        <!-- 查询结果选择性返回插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.SelectSelectivePlugin" />
+        <!-- 查询单条数据插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.SelectOneByExamplePlugin"/>
+        <!-- Lombok 插件 -->
+        <plugin type="com.tustrip.mybatis.generator.plugins.LombokPlugin"/>
+        <!-- Swagger 插件 -->
+        <plugin type="com.tustrip.mybatis.generator.plugins.SwaggerPlugin"/>
+        <!-- OverwriteXml 插件 -->
+        <plugin type="com.tustrip.mybatis.generator.plugins.OverwriteXmlPlugin"/>
+
+        <!-- 注释配置 -->
+        <commentGenerator type="com.tustrip.mybatis.generator.SimpleCommentGenerator"/>
+
+        <!--数据库连接信息-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/fund?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC&amp;verifyServerCertificate=false&amp;useSSL=false"
+                        userId="root"
+                        password="123456"/>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+            <property name="useJSR310Types" value="true"/>
+        </javaTypeResolver>
+
+        <!-- 修改实体存放路径 -->
+        <javaModelGenerator targetPackage="com.lym.domain" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- 修改.xml文件存放路径 -->
+        <sqlMapGenerator targetPackage="com.lym.mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!-- 修改 Mapper 存放路径 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.lym.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!--表名-->
+        <!--<table tableName="t_fund_info" domainObjectName="FundInfo" />-->
+        <!--<table tableName="t_fund_stock_re" domainObjectName="FundStockRe" />-->
+
+    </context>
+</generatorConfiguration>

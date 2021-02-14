@@ -1,0 +1,37 @@
+# maven ignore
+target/
+logs/*
+
+# eclipse ignore
+.settings/
+.project
+.classpath
+
+# idea ignore
+.idea/
+.idea/workspace.xml
+.idea/*
+*.ipr
+*.iml
+*.iws
+
+#arcanic ignore
+.arcconfig
+
+# temp ignore
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+*~
+
+# system ignore
+.DS_Store
+Thumbs.db
+
+# package ignore (optional)
+*.war
+*.zip
+*.tar
+
